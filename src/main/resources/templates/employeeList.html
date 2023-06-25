@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/XSL/Transform" xmlns:fmt="">
+<link rel="stylesheet" href="static/css/search.css" />
+<head>
+    <meta charset="UTF-8">
+    <title>社員管理</title>
+</head>
+<body>
+<a href="/addEmployee">
+    <button>社員追加</button>
+</a>
+    <div align="center" class="table_title">
+        <table border="1" width="600px">
+            <thead>
+            <tr fmt:align="center">
+                <th>社員ID</th>
+                <th>氏名</th>
+                <th>性別</th>
+                <th>部署</th>
+                <th>入社日</th>
+                <th>上年度残日数</th>
+                <th>本年度残日数</th>
+                <th>残日数</th>
+                <th>退社日</th>
+                <th>入社年数</th>
+                <th>
+
+                            <form action="/search">
+                                <input type="text" name="search">
+                                <input type="submit" value="搜索">
+                            </form>
+
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="employee,stat:${employeeList}">
+<!--                <td th:text="${stat.count}"></td>-->
+                <td>
+                <a class="btn btn-sm btn-primary" th:href="@{/empInfo/}+${employee.serialNumber}">[[${employee.serialNumber}]]</a>
+
+                </td>
+
+                <td th:text="${employee.employeeName}"></td>
+
+                <td th:if="${employee.gender}" th:text="男"></td>
+                <td th:unless="${employee.gender}" th:text="女"></td>
+
+<!--                <td th:text="${employee.gender}"></td>-->
+
+                <td th:text="${employee.dp}"></td>
+                <td th:text="${employee.joinDate}"></td>
+
+                <td fmt:width="10%" th:text="${employee.lastYearRemainingDay}"></td>
+                <td fmt:width="10%" th:text="${employee.thisYearRemainingDay}"></td>
+                <td th:text="${employee.lastYearRemainingDay} +'/'+ ${employee.thisYearRemainingDay}"></td>
+                <td th:text="${employee.retireDate}"></td>
+                <td th:text="${employee.yearsOfService}"></td>
+
+                <td>
+                    <a class="btn btn-sm btn-primary" th:href="@{/edit/}+${employee.serialNumber}">编辑</a>
+                    <a class="btn btn-sm btn-primary" th:href="@{/giveAndTake/}+${employee.serialNumber}">付与&消化</a>
+<!--                    <a href="/delete?serialName='${employee.serialNumber}'">-->
+<!--                    <button>删除</button>-->
+<!--                    </a>-->
+                    <a class="btn btn-sm btn-primary" th:href="@{/delete/}+${employee.serialNumber}">删除</a>
+                    <input type="button" name="submit" onclick="javascript:history.back(-1);" value="返回">
+
+                </td>
+
+
+
+
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

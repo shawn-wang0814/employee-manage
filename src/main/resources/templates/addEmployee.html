@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>社員追加更新</title>
+</head>
+
+<body>
+    <form role="form" action="/addEmp" method="post">
+        <tr>
+            <td>社員ID:
+                <input type="text" name="serialNumber">
+            </td>
+            <td>氏名:
+                <input type="text" name="name">
+            </td>
+            <td>性別:
+                <input type="radio" name="gender" value="1" checked>男
+                <input type="radio" name="gender" value="0">女
+            </td><br>
+            <td>部署:
+                <input type="text" name="dp">
+            </td>
+            <td>入社日:
+                <input type="date" name="joinDate">
+            </td>
+            <td>退社日:
+                <input type="date" name="retireDate">
+            </td><br>
+            <td>コメント:
+                <input type="text" name="comment">
+            </td><br>
+            <td>
+                <button type="submit">作る</button>
+                <input type="button" name="submit" onclick="javascript:history.back(-1);" value="返回上一页">
+            </td>
+        </tr>
+
+    </form>
+</body>
+</html>

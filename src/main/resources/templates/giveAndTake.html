@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>付与消化</title>
+</head>
+<body>
+
+<table>
+
+</table>
+<form action="/createRecord" method="post">
+    <table>
+        <tr>氏名</tr>
+        <tr>
+            <input type="text" name="serialNumber" th:value="${employee.serialNumber}" hidden>
+            <input type="text" name="employeeName" th:value="${employee.employeeName}" readonly>
+        </tr>
+        <tr>入社日
+            <input type="date" id="joinDate" name="joinDate" th:value="${employee.joinDate}">
+        </tr>
+
+        <!--        <tr>去年残日数-->
+<!--            <input type="number" name="lastYearRemainingDay" th:value="${employee.lastYearRemainingDay}" readonly>-->
+<!--        </tr>-->
+<!--        <tr>今年残日数-->
+<!--            <input type="number" name="thisYearRemainingDay" th:value="${employee.thisYearRemainingDay}" readonly>-->
+<!--        </tr>-->
+<!--        <tr>残日数-->
+<!--            [[${employee.lastYearRemainingDay}]] / [[${employee.thisYearRemainingDay}]]</tr>-->
+<!--        <tr>-->
+
+            <div>選択
+                <input type="radio" name="operation" id="aa" value="0"  >消化
+                <input type="radio" name="operation" id="bb" value="1"  checked>付与
+            </div>
+
+        </tr>
+
+
+        <tr>
+            <div id="giveDateDiv">
+                付与日
+                <input id="giveDateInput" type="date" name="giveDate" th:value="${firstDay}" onchange="changeVal()">
+            </div>
+
+        </tr>
+
+
+        <tr>
+            日数
+                <input id="giveDays" type="days" name="days">
+
+        </tr><br>
+
+        <tr>承認者：
+            <input type="text" name="adminName" th:value="${admin}">
+
+        </tr>
+        <tr>
+            <div class="input-group">
+                <span class="input-group-addon">承認日:</span>
+                <input type="text" class="form-control" name="approveDate" id="time" >
+                <script>
+                    Date.prototype.format = function (fmt) {
+                        var o = {
+                            "y+": this.getFullYear, //年
+                            "M+": this.getMonth() + 1, //月份
+                            "d+": this.getDate(), //日
+                        };
+                        if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+                        for (var k in o)
+                            if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+                        return fmt;
+                    }
+                    document.getElementById('time').value = (new Date()).format('yyyy-MM-dd');
+                </script>
+            </div>
+        </tr>
+        <tr>
+            <input type="submit" value="作る" >
+            <input type="button" name="submit" onclick="javascript:history.back(-1);" value="返回">
+        </tr>
+
+    </table>
+</form>
+<!--<div>選択-->
+<!--    <input type="radio" name="take" id="aa" value="half"  checked>消化-->
+<!--    <input type="radio" name="take" id="bb" value="all"  >付与-->
+<!--</div>-->
+
+<script type="text/javascript">
+    function changeVal() {
+        var giveDateInput = document.getElementById("giveDateInput").value;
+        var joinDate = document.getElementById("joinDate").value;
+        var dt1 = giveDateInput.split("-");
+        var dt2 = joinDate.split("-");
+        var moth1 = dt1[0] * 12 + dt1[1][1]*1;
+        var moth2 = dt2[0] * 12 + dt2[1][1]*1;
+        var diff = moth1 - moth2;
+        console.log(dt1);
+        console.log(dt2)
+        console.log(moth1);
+        console.log(moth2);
+        console.log(joinDate);
+        console.log(typeof(dt1));
+        console.log(diff);
+        if(diff < 6){
+            document.getElementById("giveDays").value = 0;
+        }else if( 6 <= diff && diff < 18 ){
+            document.getElementById("giveDays").value = 10;
+        }else if( 18 <= diff && diff < 30 ){
+            document.getElementById("giveDays").value = 11;
+        }else if( 30 <= diff && diff < 42 ){
+            document.getElementById("giveDays").value = 12;
+        }else if( 42 <= diff && diff < 54 ){
+            document.getElementById("giveDays").value = 14;
+        }else if( 54 <= diff && diff < 66 ){
+            document.getElementById("giveDays").value = 16;
+        }else if( 66 <= diff && diff < 78 ){
+            document.getElementById("giveDays").value = 18;
+        }else if( 78 <= diff){
+            document.getElementById("giveDays").value = 20;
+        }
+
+    }
+
+</script>
+
+</body>
+</html>

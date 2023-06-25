@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:fmt="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>社員詳細</title>
+</head>
+<body>
+<table border="1">
+    <tr>
+        <th>基本情報</th>
+    </tr>
+    <tr>
+        <td>社員番号</td>
+        <td>[[${employee.serialNumber}]]</td>
+        <td>氏名</td>
+        <td>[[${employee.employeeName}]]</td>
+    </tr>
+    <tr>
+        <td>部署</td>
+        <td>[[${employee.dp}]]</td>
+        <td>性別</td>
+        <td>[[${employee.gender}]]
+            <div th:switch="${employee.gender}">
+                <span th:case="1">男</span>
+                <span th:case="0">女</span>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>入社日</td>
+        <td>[[${employee.joinDate}]]</td>
+        <td>残日数</td>
+        <td>[[${employee.lastYearRemainingDay}]] / [[${employee.thisYearRemainingDay}]] </td>
+    </tr>
+
+    <tr>
+        <td>去年残日数</td>
+        <td>[[${employee.lastYearRemainingDay}]]</td>
+        <td>本年残日数</td>
+        <td>[[${employee.thisYearRemainingDay}]]</td>
+    </tr>
+</table>
+<table>
+    <tr>
+        <th>付与、消化履歴</th>
+    </tr>
+    <tr>
+        <td>id</td>
+        <td>社員番号</td>
+        <td>操作</td>
+        <td>日数</td>
+        <td>承認者</td>
+        <td>承認日</td>
+    </tr>
+
+    <tr th:each="record,stat:${giveRecordList}">
+        <!--                <td th:text="${stat.count}"></td>-->
+        <td th:text="${record.id}"></td>
+        <td th:text="${record.serialNumber}"></td>
+
+        <td>
+            <div th:switch="${record.operation}">
+                <span th:case="1">付与</span>
+                <span th:case="0">消化</span>
+            </div>
+        </td>
+        <td th:text="${record.days}"></td>
+        <td th:text="${record.adminName}"></td>
+        <td th:text="${record.approveDate}"></td>
+
+    </tr>
+    <tr th:each="record,stat:${takeRecordList}">
+        <!--                <td th:text="${stat.count}"></td>-->
+        <td th:text="${record.id}"></td>
+        <td th:text="${record.serialNumber}"></td>
+
+        <td>
+            <div th:switch="${record.operation}">
+                <span th:case="1">付与</span>
+                <span th:case="0">消化</span>
+            </div>
+        </td>
+        <td th:text="${record.days}"></td>
+        <td th:text="${record.adminName}"></td>
+        <td th:text="${record.approveDate}"></td>
+
+    </tr>
+</table>
+<table>
+    <tr>
+        <th>付与一覧</th>
+    </tr>
+    <tr>
+        <td>id</td>
+        <td>社員番号</td>
+        <td>操作</td>
+        <td>日数</td>
+        <td>承認者</td>
+        <td>承認日</td>
+    </tr>
+    <tr th:each="record,stat:${giveRecordList}">
+        <!--                <td th:text="${stat.count}"></td>-->
+        <td th:text="${record.id}"></td>
+        <td th:text="${record.serialNumber}"></td>
+
+        <td>
+            <div th:switch="${record.operation}">
+                <span th:case="1">付与</span>
+                <span th:case="0">消化</span>
+            </div>
+        </td>
+        <td th:text="${record.days}"></td>
+        <td th:text="${record.adminName}"></td>
+        <td th:text="${record.approveDate}"></td>
+
+    </tr>
+
+</table>
+
+<table>
+    <tr>
+        <th>消化一覧</th>
+    </tr>
+    <tr>
+        <td>id</td>
+        <td>社員番号</td>
+        <td>操作</td>
+        <td>日数</td>
+        <td>承認者</td>
+        <td>承認日</td>
+    </tr>
+    <tr th:each="record,stat:${takeRecordList}">
+        <!--                <td th:text="${stat.count}"></td>-->
+        <td th:text="${record.id}"></td>
+        <td th:text="${record.serialNumber}"></td>
+
+        <td>
+            <div th:switch="${record.operation}">
+                <span th:case="1">付与</span>
+                <span th:case="0">消化</span>
+            </div>
+        </td>
+        <td th:text="${record.days}"></td>
+        <td th:text="${record.adminName}"></td>
+        <td th:text="${record.approveDate}"></td>
+
+    </tr>
+
+</table>
+<tr>
+    <input type="button" name="submit" onclick="javascript:history.back(-1);" value="返回上一页">
+</tr>
+
+</body>
+</html>

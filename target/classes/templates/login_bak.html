@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 1. 引入vue -->
+    <script src="./js/vue.js"></script>
+    <!-- 2. 引入样式 -->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <!-- 3. 引入组件库 -->
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <title>login</title>
+</head>
+<body>
+    <div id="app">
+        <div class="form_box">
+            <div class="page_left">
+                <img src="./image/box_logo.png" class="left_logo">
+                <div class="left_title">有給管理システム</div>
+                <div class="left_hint">[天时 地利 人和]</div>
+                <div class="left_hint">[私たちは、夢を造り続ける]</div>
+            </div>
+            <div class="page_right">
+                <div class="right_title">ユーザログイン</div>
+                <el-form label-position="top" label-width="80px">
+                    <el-form-item label="ユーザー名">
+                        <el-input v-model="userInfo.name" name="name"></el-input>
+                    </el-form-item>
+                    <el-form-item label="パスワード">
+                        <el-input v-model="userInfo.password" :show-password="true" name="password"></el-input>
+                    </el-form-item>
+                </el-form>
+                <el-button type="primary" class="page_btn" @click="submitInfo" >ログイン</el-button>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    new Vue({
+        el: '#app',
+        data() {
+            return {
+                userInfo:{
+                    name:"",
+                    password:''
+                }
+            }
+        },
+        methods: {
+            //登录
+            submitInfo(){
+                console.log(this.userInfo,`当前表单数据`);
+                const formData = new FormData();
+                formData.append("name",this.userInfo.name);
+                formData.append("password",this.userInfo.password);
+                axios.post("/loginIn", formData);
+
+            }
+        },
+    })
+</script>
+<style>
+    body{
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .form_box{
+        width: 430px;
+        height: fit-content;
+        display: flex;
+        background:#FFFFFF;
+        box-shadow: #ccc 0px 0px 10px;
+    }
+
+    .page_left{
+        width: 186px;
+        padding: 30px 0 20px 0;
+        background: rgba(66, 113, 229);
+        color: #FFFFFF;
+        text-align: center;
+        border-radius: 8px;
+    }
+
+    .left_logo{
+        width: 64px;
+        height: 64px;
+        margin-bottom: 30px;
+    }
+
+    .left_title{
+        width: 100%;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .left_hint{
+        width: 100%;
+        text-align: center;
+        font-size: 14px;
+    }
+
+    .page_right{
+        width: 244px;
+        height: 100%;
+        padding: 0 20px;
+        border-radius: 8px;
+        padding: 20px;
+    }
+
+    .right_title{
+        width: 100%;
+        text-align: center;
+    }
+
+    .page_btn{
+        width: 100%;
+        color:"#4271e5"
+    }
+
+    .el-form-item{
+        margin-bottom: 16px !important;
+    }
+</style>
+</html>

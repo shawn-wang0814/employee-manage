@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>社員情報変更</title>
+</head>
+
+<script>
+    const c = 1;
+    $(":radio[name='gender'][value='" + c + "']").prop("checked", "checked");
+</script>
+
+<body>
+<form role="form" action="/updateEmp" method="post">
+    <tr>
+
+        <td>社員ID:
+            <input type="text" name="serialNumber" th:value="${employee.serialNumber}" readonly="readonly">
+        </td><br>
+        <td>氏名:
+            <input type="text" name="employeeName" th:value="${employee.employeeName}" >
+        </td><br>
+
+        <td>性別:
+                <input type="radio" name="gender" th:if="${employee.gender eq 1}" value="1" th:text="男" checked>
+                <input type="radio" name="gender" th:if="${employee.gender eq 0}" value="0" th:text="女" checked>
+
+        </td><br>
+
+        <td>部署:
+            <input type="text" name="dp" th:value="${employee.dp}">
+        </td>
+        <td>入社日:
+            <input type="date" name="joinDate" th:value="${employee.joinDate}">
+        </td>
+        <td>退社日:
+            <input type="date" name="retireDate" th:value="${employee.retireDate}">
+        </td><br>
+        <td>去年残日数:
+            <input type="number" name="lastYearRemainingDay" th:value="${employee.lastYearRemainingDay}" readonly>
+        </td><br>
+        <td>本年残日数:
+            <input type="number" name="thisYearRemainingDay" th:value="${employee.thisYearRemainingDay}" readonly>
+        </td><br>
+        <td>コメント:
+            <input type="text" name="comment">
+        </td><br>
+        <td>
+            <button type="submit">作る</button>
+            <input type="button" name="submit" onclick="javascript:history.back(-1);" value="返回上一页">
+        </td>
+    </tr>
+
+</form>
+</body>
+</html>
