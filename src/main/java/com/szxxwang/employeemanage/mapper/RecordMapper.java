@@ -2,10 +2,7 @@ package com.szxxwang.employeemanage.mapper;
 
 import com.szxxwang.employeemanage.domain.GiveRecord;
 import com.szxxwang.employeemanage.domain.TakeRecord;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
+import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Repository;
 
 import java.sql.Date;
@@ -43,4 +40,10 @@ public interface RecordMapper {
     @Insert("insert into takeRecord(year,serialNumber,employeeName,operation,days,adminName,approveDate,daysActually,daysInTheory) " +
             "values(#{year},#{serialNumber},#{employeeName},#{operation},#{days},#{adminName},#{approveDate},#{daysActually},#{daysInTheory})")
     int createTakeRecord(TakeRecord takeRecord);
+
+    @Delete("delete from giverecord where serialNumber=#{serialNumber}")
+    void deleteGiveRecord(String serialNumber);
+
+    @Delete("delete from takerecord where serialNumber=#{serialNumber}")
+    void deleteTakeRecord(String serialNumber);
 }

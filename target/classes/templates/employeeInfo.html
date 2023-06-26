@@ -29,7 +29,7 @@
         <td>部署</td>
         <td>[[${employee.dp}]]</td>
         <td>性別</td>
-        <td>[[${employee.gender}]]
+        <td>
             <div th:switch="${employee.gender}">
                 <span th:case="1">男</span>
                 <span th:case="0">女</span>
@@ -61,6 +61,7 @@
     <tr>
         <td>id</td>
         <td>社員番号</td>
+        <td>年份</td>
         <td>操作</td>
         <td>日数</td>
         <td>承認者</td>
@@ -71,6 +72,7 @@
         <!--                <td th:text="${stat.count}"></td>-->
         <td th:text="${record.id}"></td>
         <td th:text="${record.serialNumber}"></td>
+        <td th:text="${record.year}"></td>
 
         <td>
             <div th:switch="${record.operation}">
@@ -107,6 +109,7 @@
     <tr>
         <td>id</td>
         <td>社員番号</td>
+        <td>年份</td>
         <td>操作</td>
         <td>日数</td>
         <td>承認者</td>
@@ -116,6 +119,7 @@
         <!--                <td th:text="${stat.count}"></td>-->
         <td th:text="${record.id}"></td>
         <td th:text="${record.serialNumber}"></td>
+        <td th:text="${record.year}"></td>
 
         <td>
             <div th:switch="${record.operation}">
@@ -138,6 +142,7 @@
     <tr>
         <td>id</td>
         <td>社員番号</td>
+        <td>年份</td>
         <td>操作</td>
         <td>日数</td>
         <td>承認者</td>
@@ -147,6 +152,7 @@
         <!--                <td th:text="${stat.count}"></td>-->
         <td th:text="${record.id}"></td>
         <td th:text="${record.serialNumber}"></td>
+        <td th:text="${record.year}"></td>
 
         <td>
             <div th:switch="${record.operation}">
@@ -219,7 +225,7 @@
         white-space: nowrap;
         padding: 6px 6px 6px 12px;
 
-        background: #CAE8EA url(images/bg_header.jpg) no-repeat;
+        background: #CAE8EA;
 
     }
 

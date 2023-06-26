@@ -6,11 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- 1. 引入vue -->
     <script src="./js/vue.js"></script>
+    <script src="./js/jquery-3.3.1.js"></script>
     <!-- 2. 引入样式 -->
     <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
     <!-- 3. 引入组件库 -->
     <script src="https://unpkg.com/element-ui/lib/index.js"></script>
-    <script src="./js/jquery-3.3.1.js"></script>
     <title>社員管理</title>
 </head>
 <body>
@@ -32,7 +32,7 @@
                 <th>入社年数</th>
                 <th>
 
-                            <form action="/empInfo/{employee.serialNumber}" onsubmit="check_search_box()">
+                            <form action="/empInfo" method="post" onsubmit="return check_search_box()">
                                 <input id="search_box" type="text" name="search" placeholder="社員番号を入力してください.">
                                 <p class="search_reminding_msg"></p>
                                 <input type="submit" value="搜索">
@@ -82,12 +82,14 @@
         </table>
     </div>
 </body>
-<script>
+<script type="text/javascript">
     function check_search_box() {
-        var dataInput = document.getElementById("search_box").val();
+        var dataInput = document.getElementById("search_box").value;
         var msg = document.getElementsByClassName("search_reminding_msg");
-        if(dataInput ===null){
-            msg.innerHtml="查询内容不能为空，请输入员工ID."
+        console.log(dataInput);
+        console.log("这个方法执行！");
+        if(dataInput === null){
+            msg.innerHtml="查询内容不能为空，请输入员工ID.";
             return false;
         }
     }
@@ -145,7 +147,7 @@
     white-space: nowrap;
     padding: 6px 6px 6px 12px;
 
-    background: #CAE8EA url(images/bg_header.jpg) no-repeat;
+    background: #CAE8EA;
 
     }
 

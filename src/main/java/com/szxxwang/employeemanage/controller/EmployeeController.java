@@ -77,6 +77,8 @@ public class EmployeeController {
     public void delEmployee(@PathVariable("serialNumber")String serialNumber,HttpServletResponse response) throws IOException {
         System.out.println(serialNumber);
         employeeService.deleteEmployee(serialNumber);
+        recordService.deleteGiveRecord(serialNumber);
+        recordService.deleteTakeRecord(serialNumber);
         response.sendRedirect("/employeeList");
     }
 
@@ -84,16 +86,31 @@ public class EmployeeController {
     public String employeeInfo(@PathVariable("serialNumber")String serialNumber, Model md,HttpServletResponse response) throws IOException {
         Employee employee = employeeService.getBySerialNumber(serialNumber);
         md.addAttribute("employee",employee);
-//        List<GiveRecord> giveRecordList = recordService.findGiveAll(serialNumber);
-//        md.addAttribute("giveRecordList",giveRecordList);
 
         List<GiveRecord> giveAllList = recordService.findGiveAll(serialNumber);
         md.addAttribute("giveRecordList",giveAllList);
         List<TakeRecord> takeAllList = recordService.findTakeAll(serialNumber);
         md.addAttribute("takeRecordList",takeAllList);
-//        response.sendRedirect("/employeeInfo");
         return "employeeInfo";
+
     }
+
+    @RequestMapping("/empInfo")
+    public String empInfo(@RequestParam("search")String serialNumber, Model md,HttpServletResponse response) throws IOException {
+        if(serialNumber.isEmpty()){
+            return "redirect:employeeList";
+        }else{
+            Employee employee = employeeService.getBySerialNumber(serialNumber);
+            md.addAttribute("employee",employee);
+
+            List<GiveRecord> giveAllList = recordService.findGiveAll(serialNumber);
+            md.addAttribute("giveRecordList",giveAllList);
+            List<TakeRecord> takeAllList = recordService.findTakeAll(serialNumber);
+            md.addAttribute("takeRecordList",takeAllList);
+            return "employeeInfo";
+        }
+    }
+
     @RequestMapping("/edit/{serialNumber}")
     public String employeeEdit(@PathVariable("serialNumber")String serialNumber, Model md, HttpServletResponse response, HttpServletRequest request) throws ServletException, IOException {
         Employee employee = employeeService.getBySerialNumber(serialNumber);

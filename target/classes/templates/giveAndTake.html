@@ -15,7 +15,7 @@
 </head>
 <body>
 <h1>付与&消化</h1>
-<form action="/createRecord" method="post" style="border-collapse: separate;border-spacing: 10px" onsubmit="check_days()">
+<form action="/createRecord" method="post" style="border-collapse: separate;border-spacing: 10px" onsubmit="return check_days()">
 
         <tr>氏名:
             <input type="text" name="serialNumber" th:value="${employee.serialNumber}" hidden>
@@ -46,7 +46,7 @@
 
         <tr>
             日数:
-                <input id="giveDays" type="days" name="days" onblur="check_days()"><br>
+                <input id="giveDays" type="days" name="days"><br>
                 <p id="reminding_msg"></p>
 
         </tr><br>
@@ -240,7 +240,7 @@
         white-space: nowrap;
         padding: 6px 6px 6px 12px;
 
-        background: #CAE8EA url(images/bg_header.jpg) no-repeat;
+        background: #CAE8EA;
 
     }
 

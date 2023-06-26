@@ -19,4 +19,6 @@ public interface RecordService {
     List<GiveRecord> getGiveRecordByYear(String year,String serialNumber);
     List<TakeRecord> getTakeRecordByYear(String year,String serialNumber);
     int createTakeRecord(TakeRecord takeRecord);
+    void deleteGiveRecord(String serialNumber);
+    void deleteTakeRecord(String serialNumber);
 }

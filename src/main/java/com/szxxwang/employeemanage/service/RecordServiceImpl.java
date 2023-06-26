@@ -51,4 +51,14 @@ public class RecordServiceImpl implements RecordService {
     public int createTakeRecord(TakeRecord takeRecord) {
         return recordMapper.createTakeRecord(takeRecord);
     }
+
+    @Override
+    public void deleteGiveRecord(String serialNumber) {
+        recordMapper.deleteGiveRecord(serialNumber);
+    }
+
+    @Override
+    public void deleteTakeRecord(String serialNumber) {
+        recordMapper.deleteTakeRecord(serialNumber);
+    }
 }

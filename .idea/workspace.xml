@@ -2,22 +2,26 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="567d4f16-fb42-4d84-9844-fc8d8ac850d3" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/szxxwang/employeemanage/controller/EmployeeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/szxxwang/employeemanage/controller/EmployeeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/szxxwang/employeemanage/mapper/RecordMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/szxxwang/employeemanage/mapper/RecordMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/szxxwang/employeemanage/service/RecordService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/szxxwang/employeemanage/service/RecordService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/szxxwang/employeemanage/service/RecordServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/szxxwang/employeemanage/service/RecordServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/addEmployee.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/addEmployee.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/employeeEdit.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/employeeEdit.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/employeeInfo.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/employeeInfo.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/employeeList.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/employeeList.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/error.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/error.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/giveAndTake.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/giveAndTake.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/szxxwang/employeemanage/controller/EmployeeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/szxxwang/employeemanage/controller/EmployeeController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/szxxwang/employeemanage/mapper/RecordMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/szxxwang/employeemanage/mapper/RecordMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/szxxwang/employeemanage/service/RecordService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/szxxwang/employeemanage/service/RecordService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/szxxwang/employeemanage/service/RecordServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/szxxwang/employeemanage/service/RecordServiceImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/templates/addEmployee.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/addEmployee.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/templates/employeeEdit.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/employeeEdit.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/templates/employeeInfo.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/employeeInfo.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/templates/employeeList.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/employeeList.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/error.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/error.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/templates/giveAndTake.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/giveAndTake.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/login_bak.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/login_bak.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -218,7 +222,7 @@
       <workItem from="1687649874121" duration="34383000" />
       <workItem from="1687695066244" duration="4811000" />
       <workItem from="1687743728799" duration="6850000" />
-      <workItem from="1687765729733" duration="24107000" />
+      <workItem from="1687765729733" duration="31704000" />
     </task>
     <task id="LOCAL-00001" summary="The first version of the project! Implement employee leave calculation function!">
       <created>1687699300547</created>
@@ -234,7 +238,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687699922985</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Recoding the HTML file!Make the page more beautiful!">
+      <created>1687797987304</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1687797987304</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -242,21 +253,24 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="The first version of the project! Implement employee leave calculation function!" />
-    <option name="LAST_COMMIT_MESSAGE" value="The first version of the project! Implement employee leave calculation function!" />
+    <MESSAGE value="Recoding the HTML file!Make the page more beautiful!" />
+    <option name="LAST_COMMIT_MESSAGE" value="Recoding the HTML file!Make the page more beautiful!" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="623" y="220" key="#com.intellij.ide.util.MemberChooser" timestamp="1687671937231">
+    <state x="623" y="220" key="#com.intellij.ide.util.MemberChooser" timestamp="1687801884842">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="623" y="220" key="#com.intellij.ide.util.MemberChooser/0.0.1536.864/-1440.0.1440.900@0.0.1536.864" timestamp="1687671937231" />
+    <state x="623" y="220" key="#com.intellij.ide.util.MemberChooser/0.0.1536.864@0.0.1536.864" timestamp="1687801884842" />
     <state x="830" y="293" key="#com.intellij.ide.util.MemberChooser/0.0.2048.1152@0.0.2048.1152" timestamp="1687507518890" />
     <state x="792" y="267" key="#com.intellij.openapi.keymap.impl.ui.EditKeymapsDialog" timestamp="1687312915418">
       <screen x="0" y="0" width="2048" height="1152" />
     </state>
     <state x="792" y="267" key="#com.intellij.openapi.keymap.impl.ui.EditKeymapsDialog/0.0.2048.1152@0.0.2048.1152" timestamp="1687312915418" />
-    <state x="242" y="28" key="CommitChangelistDialog2" timestamp="1687699921652">
+    <state x="242" y="28" key="CommitChangelistDialog2" timestamp="1687797985775">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
+    <state x="242" y="28" key="CommitChangelistDialog2/0.0.1536.864/-1440.0.1440.900@0.0.1536.864" timestamp="1687797985775" />
     <state x="242" y="28" key="CommitChangelistDialog2/0.0.1536.864@0.0.1536.864" timestamp="1687699921652" />
     <state x="154" y="219" key="FileChooserDialogImpl" timestamp="1687698235292">
       <screen x="0" y="0" width="1536" height="864" />
@@ -268,37 +282,37 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="611" y="326" key="Github.ShareDialog/0.0.1536.864@0.0.1536.864" timestamp="1687699804862" />
-    <state width="1493" height="223" key="GridCell.Tab.0.bottom" timestamp="1687796967962">
+    <state width="1493" height="223" key="GridCell.Tab.0.bottom" timestamp="1687805034100">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state width="2005" height="223" key="GridCell.Tab.0.bottom/-1920.0.1536.864/0.0.2048.1152@0.0.2048.1152" timestamp="1687771750595" />
     <state width="1397" height="223" key="GridCell.Tab.0.bottom/0.0.1536.864/-1440.0.1440.900@-1440.0.1440.900" timestamp="1687587056804" />
     <state width="1493" height="223" key="GridCell.Tab.0.bottom/0.0.1536.864/-1440.0.1440.900@0.0.1536.864" timestamp="1687796967962" />
-    <state width="1493" height="223" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1687746278369" />
+    <state width="1493" height="223" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1687805034100" />
     <state width="2005" height="208" key="GridCell.Tab.0.bottom/0.0.2048.1152@0.0.2048.1152" timestamp="1687522416747" />
-    <state width="1493" height="223" key="GridCell.Tab.0.center" timestamp="1687796967962">
+    <state width="1493" height="223" key="GridCell.Tab.0.center" timestamp="1687805034100">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state width="2005" height="223" key="GridCell.Tab.0.center/-1920.0.1536.864/0.0.2048.1152@0.0.2048.1152" timestamp="1687771750595" />
     <state width="1397" height="223" key="GridCell.Tab.0.center/0.0.1536.864/-1440.0.1440.900@-1440.0.1440.900" timestamp="1687587056803" />
     <state width="1493" height="223" key="GridCell.Tab.0.center/0.0.1536.864/-1440.0.1440.900@0.0.1536.864" timestamp="1687796967962" />
-    <state width="1493" height="223" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1687746278369" />
+    <state width="1493" height="223" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1687805034100" />
     <state width="2005" height="208" key="GridCell.Tab.0.center/0.0.2048.1152@0.0.2048.1152" timestamp="1687522416747" />
-    <state width="1493" height="223" key="GridCell.Tab.0.left" timestamp="1687796967962">
+    <state width="1493" height="223" key="GridCell.Tab.0.left" timestamp="1687805034100">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state width="2005" height="223" key="GridCell.Tab.0.left/-1920.0.1536.864/0.0.2048.1152@0.0.2048.1152" timestamp="1687771750595" />
     <state width="1397" height="223" key="GridCell.Tab.0.left/0.0.1536.864/-1440.0.1440.900@-1440.0.1440.900" timestamp="1687587056803" />
     <state width="1493" height="223" key="GridCell.Tab.0.left/0.0.1536.864/-1440.0.1440.900@0.0.1536.864" timestamp="1687796967962" />
-    <state width="1493" height="223" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1687746278369" />
+    <state width="1493" height="223" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1687805034100" />
     <state width="2005" height="208" key="GridCell.Tab.0.left/0.0.2048.1152@0.0.2048.1152" timestamp="1687522416747" />
-    <state width="1493" height="223" key="GridCell.Tab.0.right" timestamp="1687796967962">
+    <state width="1493" height="223" key="GridCell.Tab.0.right" timestamp="1687805034100">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state width="2005" height="223" key="GridCell.Tab.0.right/-1920.0.1536.864/0.0.2048.1152@0.0.2048.1152" timestamp="1687771750595" />
     <state width="1397" height="223" key="GridCell.Tab.0.right/0.0.1536.864/-1440.0.1440.900@-1440.0.1440.900" timestamp="1687587056804" />
     <state width="1493" height="223" key="GridCell.Tab.0.right/0.0.1536.864/-1440.0.1440.900@0.0.1536.864" timestamp="1687796967962" />
-    <state width="1493" height="223" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1687746278369" />
+    <state width="1493" height="223" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1687805034100" />
     <state width="2005" height="208" key="GridCell.Tab.0.right/0.0.2048.1152@0.0.2048.1152" timestamp="1687522416747" />
     <state width="2005" height="382" key="GridCell.Tab.1.bottom" timestamp="1687768020156">
       <screen x="0" y="0" width="2048" height="1152" />
@@ -332,11 +346,11 @@
     <state x="158" y="150" key="SettingsEditor/0.0.1536.864/-1440.0.1440.900@0.0.1536.864" timestamp="1687587726104" />
     <state x="158" y="150" key="SettingsEditor/0.0.1536.864@0.0.1536.864" timestamp="1687699729106" />
     <state x="210" y="438" key="SettingsEditor/0.0.2048.1152@0.0.2048.1152" timestamp="1687511032171" />
-    <state x="361" y="166" key="Vcs.Push.Dialog.v2" timestamp="1687797887041">
+    <state x="361" y="166" key="Vcs.Push.Dialog.v2" timestamp="1687807101147">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="361" y="166" key="Vcs.Push.Dialog.v2/0.0.1536.864/-1440.0.1440.900@0.0.1536.864" timestamp="1687797887041" />
-    <state x="361" y="166" key="Vcs.Push.Dialog.v2/0.0.1536.864@0.0.1536.864" timestamp="1687699823922" />
+    <state x="361" y="166" key="Vcs.Push.Dialog.v2/0.0.1536.864@0.0.1536.864" timestamp="1687807101147" />
     <state x="434" y="278" key="new project wizard" timestamp="1687311745794">
       <screen x="0" y="0" width="2048" height="1152" />
     </state>
