@@ -2,9 +2,18 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 1. 引入vue -->
+    <script src="./js/vue.js"></script>
+    <!-- 2. 引入样式 -->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <!-- 3. 引入组件库 -->
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+    <script src="./js/jquery-3.3.1.js"></script>
     <title>社員情報変更</title>
 </head>
-
+<h1>社員更新</h1>
 <script>
     const c = 1;
     $(":radio[name='gender'][value='" + c + "']").prop("checked", "checked");
@@ -15,10 +24,10 @@
     <tr>
 
         <td>社員ID:
-            <input type="text" name="serialNumber" th:value="${employee.serialNumber}" readonly="readonly">
+            <input type="text" name="serialNumber" th:value="${employee.serialNumber}" readonly="readonly" style="width: 50px">
         </td><br>
         <td>氏名:
-            <input type="text" name="employeeName" th:value="${employee.employeeName}" >
+            <input type="text" name="employeeName" th:value="${employee.employeeName}" style="width: 50px">
         </td><br>
 
         <td>性別:
@@ -28,8 +37,8 @@
         </td><br>
 
         <td>部署:
-            <input type="text" name="dp" th:value="${employee.dp}">
-        </td>
+            <input type="text" name="dp" th:value="${employee.dp}" style="width: 50px">
+        </td><br>
         <td>入社日:
             <input type="date" name="joinDate" th:value="${employee.joinDate}">
         </td>
@@ -37,20 +46,103 @@
             <input type="date" name="retireDate" th:value="${employee.retireDate}">
         </td><br>
         <td>去年残日数:
-            <input type="number" name="lastYearRemainingDay" th:value="${employee.lastYearRemainingDay}" readonly>
+            <input type="number" name="lastYearRemainingDay" th:value="${employee.lastYearRemainingDay}" style="width: 50px" readonly>
         </td><br>
         <td>本年残日数:
-            <input type="number" name="thisYearRemainingDay" th:value="${employee.thisYearRemainingDay}" readonly>
+            <input type="number" name="thisYearRemainingDay" th:value="${employee.thisYearRemainingDay}" style="width: 50px" readonly>
         </td><br>
         <td>コメント:
             <input type="text" name="comment">
         </td><br>
         <td>
-            <button type="submit">作る</button>
-            <input type="button" name="submit" onclick="javascript:history.back(-1);" value="返回上一页">
+            <button class="page_btn1" type="submit">作る</button>
+            <input class="page_btn2" type="button" name="submit" onclick="javascript:history.back(-1);" value="バック">
         </td>
     </tr>
 
 </form>
 </body>
+<style>
+    body {
+    font: normal 11px "Trebuchet MS", Verdana, Arial, Helvetica,Segoe Print;
+
+    color: #4f6b72;
+
+    background: #E6EAE9;
+
+    }
+
+    a {
+    color: #0c8ced;
+
+    }
+
+
+    caption {
+    padding: 0 0 5px 0;
+
+    width: 700px;
+
+    font: italic 11px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+
+    text-align: right;
+
+    }
+
+    th {
+    font: bold 11px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+
+    color: #4f6b72;
+
+    border-right: 1px solid #C1DAD7;
+
+    border-bottom: 1px solid #C1DAD7;
+
+    border-top: 1px solid #C1DAD7;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+
+    text-align: left;
+    white-space: nowrap;
+    padding: 6px 6px 6px 12px;
+
+    background: #CAE8EA url(images/bg_header.jpg) no-repeat;
+
+    }
+
+
+
+    td {
+    border-right: 1px solid #C1DAD7;
+
+    border-bottom: 1px solid #C1DAD7;
+
+    background: #fff;
+
+    font-size:11px;
+
+    padding: 6px 6px 6px 12px;
+
+    color: #4f6b72;
+
+    }
+
+    .page_btn1{
+        /*width: 30%;*/
+        border: white;
+        color:#0c8ced;
+        background: rgba(66,113,229,0.5);
+    }
+    .page_btn2{
+        /*width: 30%;*/
+        border: white;
+        text-decoration: none;
+        color:#606266 !important;
+        background: rgba(255,255,255,0.5);
+    }
+
+
+</style>
 </html>

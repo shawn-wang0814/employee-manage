@@ -2,45 +2,42 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>付与消化</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 1. 引入vue -->
+    <script src="/js/vue.js"></script>
+    <!-- 2. 引入样式 -->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <!-- 3. 引入组件库 -->
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+    <script src="/js/jquery-3.3.1.js"></script>
+    <title>付与&消化</title>
 </head>
 <body>
+<h1>付与&消化</h1>
+<form action="/createRecord" method="post" style="border-collapse: separate;border-spacing: 10px" onsubmit="check_days()">
 
-<table>
-
-</table>
-<form action="/createRecord" method="post">
-    <table>
-        <tr>氏名</tr>
-        <tr>
+        <tr>氏名:
             <input type="text" name="serialNumber" th:value="${employee.serialNumber}" hidden>
-            <input type="text" name="employeeName" th:value="${employee.employeeName}" readonly>
+            <input class="employee_name" type="text" name="employeeName" style="width: 50px"  th:value="${employee.employeeName}" readonly>
         </tr>
-        <tr>入社日
-            <input type="date" id="joinDate" name="joinDate" th:value="${employee.joinDate}">
+        <tr>残日数:
+                [[${employee.lastYearRemainingDay}]] / [[${employee.thisYearRemainingDay}]]</tr>
+        <tr><br><br><br>
+        <tr>入社日:
+            <input type="date" id="joinDate" name="joinDate"style="width: 90px"th:value="${employee.joinDate}">
         </tr>
-
-        <!--        <tr>去年残日数-->
-<!--            <input type="number" name="lastYearRemainingDay" th:value="${employee.lastYearRemainingDay}" readonly>-->
-<!--        </tr>-->
-<!--        <tr>今年残日数-->
-<!--            <input type="number" name="thisYearRemainingDay" th:value="${employee.thisYearRemainingDay}" readonly>-->
-<!--        </tr>-->
-<!--        <tr>残日数-->
-<!--            [[${employee.lastYearRemainingDay}]] / [[${employee.thisYearRemainingDay}]]</tr>-->
-<!--        <tr>-->
-
-            <div>選択
-                <input type="radio" name="operation" id="aa" value="0"  >消化
-                <input type="radio" name="operation" id="bb" value="1"  checked>付与
+            <div>選択:
+                <input type="radio" onclick="acheck1()" name="operation" id="aa" value="0"  >消化
+                <input type="radio" onclick="acheck2()" name="operation" id="bb" value="1"  checked>付与
             </div>
 
         </tr>
 
 
         <tr>
-            <div id="giveDateDiv">
-                付与日
+            <div class="box" id="giveDateDiv">
+                付与日:
                 <input id="giveDateInput" type="date" name="giveDate" th:value="${firstDay}" onchange="changeVal()">
             </div>
 
@@ -48,8 +45,9 @@
 
 
         <tr>
-            日数
-                <input id="giveDays" type="days" name="days">
+            日数:
+                <input id="giveDays" type="days" name="days" onblur="check_days()"><br>
+                <p id="reminding_msg"></p>
 
         </tr><br>
 
@@ -78,18 +76,51 @@
             </div>
         </tr>
         <tr>
-            <input type="submit" value="作る" >
-            <input type="button" name="submit" onclick="javascript:history.back(-1);" value="返回">
+            <input class="page_btn1" type="submit" value="作る" >
+            <input class="page_btn2" type="button" name="submit" onclick="javascript:history.back(-1);" value="バック">
         </tr>
 
-    </table>
-</form>
-<!--<div>選択-->
-<!--    <input type="radio" name="take" id="aa" value="half"  checked>消化-->
-<!--    <input type="radio" name="take" id="bb" value="all"  >付与-->
-<!--</div>-->
 
+</form>
 <script type="text/javascript">
+
+    function check_days() {
+        var val=$('input:radio[name="operation"]:checked').val();
+        console.log("operation:",val);
+        if(val === "0"){
+            var daysInput = document.getElementById("giveDays");
+            var pLabel = document.getElementById("reminding_msg");
+            var takeDays = daysInput.value;
+            var remainingDays = [[${employee.lastYearRemainingDay}]] + [[${employee.thisYearRemainingDay}]];
+            console.log(takeDays);
+            console.log(remainingDays);
+            if( takeDays > remainingDays){
+                pLabel.innerHTML=("请假天数大于可用天数，可用假期数目为："+remainingDays);
+                return false;
+            }
+        }
+    }
+    function acheck1(){
+        $(".box").hide();
+        // function check_days() {
+        //     var daysInput = document.getElementById("giveDays");
+        //     var pLabel = document.getElementById("reminding_msg");
+        //     var takeDays = daysInput.value;
+        //     var remainingDays = [[${employee.lastYearRemainingDay}]] + [[${employee.thisYearRemainingDay}]];
+        //     console.log(takeDays);
+        //     console.log(remainingDays);
+        //     daysInput.onblur=function () {
+        //         if( takeDays > remainingDays){
+        //             pLabel.innerHTML=("请假天数大于可用天数，可用假期数目为："+remainingDays);
+        //         }
+        //     };
+        // }
+    }
+    function acheck2(){
+        $(".box").show();
+        document.getElementById("reminding_msg").hidden = true;
+    }
+
     function changeVal() {
         var giveDateInput = document.getElementById("giveDateInput").value;
         var joinDate = document.getElementById("joinDate").value;
@@ -128,4 +159,109 @@
 </script>
 
 </body>
+
+<style>
+    tr{
+        display: block;
+        margin: 20px;
+    }
+    .employee_name{
+        border: white;
+        text-decoration: none;
+    }
+    body{
+        margin: 10px;
+        padding: 20px;
+        width: 100%;
+        height: 100vh;
+        padding: 20px;
+    }
+
+
+    .page_btn1{
+        /*width: 30%;*/
+        border: white;
+        color:#0c8ced;
+        background: rgba(66,113,229,0.5);
+    }
+    .page_btn2{
+        /*width: 30%;*/
+        border: white;
+        text-decoration: none;
+        color:#606266 !important;
+        background: rgba(255,255,255,0.5);
+    }
+
+
+
+    body {
+        font: normal 11px "Trebuchet MS", Verdana, Arial, Helvetica,Segoe Print;
+
+        color: #4f6b72;
+
+        background: #E6EAE9;
+
+    }
+
+    a {
+        color: #0c8ced;
+
+    }
+
+
+
+    caption {
+        padding: 0 0 5px 0;
+
+        width: 700px;
+
+        font: italic 11px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+
+        text-align: right;
+
+    }
+
+    th {
+        font: bold 11px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+
+        color: #4f6b72;
+
+        border-right: 1px solid #C1DAD7;
+
+        border-bottom: 1px solid #C1DAD7;
+
+        border-top: 1px solid #C1DAD7;
+
+        letter-spacing: 2px;
+
+        text-transform: uppercase;
+
+        text-align: left;
+        white-space: nowrap;
+        padding: 6px 6px 6px 12px;
+
+        background: #CAE8EA url(images/bg_header.jpg) no-repeat;
+
+    }
+
+
+    td {
+        border-right: 1px solid #C1DAD7;
+
+        border-bottom: 1px solid #C1DAD7;
+
+        background: #fff;
+
+        font-size:11px;
+
+        padding: 6px 6px 6px 12px;
+
+        color: #4f6b72;
+
+    }
+
+
+</style>
+
+
 </html>

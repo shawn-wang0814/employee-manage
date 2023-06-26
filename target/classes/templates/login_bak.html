@@ -18,7 +18,7 @@
     <div id="app">
         <div class="form_box">
             <div class="page_left">
-                <img src="./image/box_logo.png" class="left_logo">
+                <img src="./image/box_logo.png" class="left_logo" alt="">
                 <div class="left_title">有給管理システム</div>
                 <div class="left_hint">[天时 地利 人和]</div>
                 <div class="left_hint">[私たちは、夢を造り続ける]</div>
@@ -78,13 +78,13 @@
         height: fit-content;
         display: flex;
         background:#FFFFFF;
-        box-shadow: #ccc 0px 0px 10px;
+        box-shadow: #ccc 0 0 10px;
     }
 
     .page_left{
         width: 186px;
         padding: 30px 0 20px 0;
-        background: rgba(66, 113, 229);
+        background: rgba(66,113,229,0.5);
         color: #FFFFFF;
         text-align: center;
         border-radius: 8px;
@@ -111,9 +111,9 @@
     .page_right{
         width: 244px;
         height: 100%;
-        padding: 0 20px;
-        border-radius: 8px;
         padding: 20px;
+        border-radius: 8px;
+        /*padding: 20px;*/
     }
 
     .right_title{
@@ -123,11 +123,11 @@
 
     .page_btn{
         width: 100%;
-        color:"#4271e5"
+        color:#4271e5
     }
 
-    .el-form-item{
-        margin-bottom: 16px !important;
-    }
+    /*.el-form-item{*/
+    /*    margin-bottom: 16px !important;*/
+    /*}*/
 </style>
 </html>

@@ -1,16 +1,23 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/XSL/Transform" xmlns:fmt="">
-<link rel="stylesheet" href="static/css/search.css" />
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 1. 引入vue -->
+    <script src="./js/vue.js"></script>
+    <!-- 2. 引入样式 -->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <!-- 3. 引入组件库 -->
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+    <script src="./js/jquery-3.3.1.js"></script>
     <title>社員管理</title>
 </head>
 <body>
-<a href="/addEmployee">
-    <button>社員追加</button>
-</a>
+<h1>社員管理</h1>
+<a class="add_employee" href="/addEmployee" style="text-decoration: none;color:#FFFFFF;background: #0c8ced">社員追加</a>
     <div align="center" class="table_title">
-        <table border="1" width="600px">
+        <table class="table_box" width="600px">
             <thead>
             <tr fmt:align="center">
                 <th>社員ID</th>
@@ -25,8 +32,9 @@
                 <th>入社年数</th>
                 <th>
 
-                            <form action="/search">
-                                <input type="text" name="search">
+                            <form action="/empInfo/{employee.serialNumber}" onsubmit="check_search_box()">
+                                <input id="search_box" type="text" name="search" placeholder="社員番号を入力してください.">
+                                <p class="search_reminding_msg"></p>
                                 <input type="submit" value="搜索">
                             </form>
 
@@ -60,11 +68,9 @@
                 <td>
                     <a class="btn btn-sm btn-primary" th:href="@{/edit/}+${employee.serialNumber}">编辑</a>
                     <a class="btn btn-sm btn-primary" th:href="@{/giveAndTake/}+${employee.serialNumber}">付与&消化</a>
-<!--                    <a href="/delete?serialName='${employee.serialNumber}'">-->
-<!--                    <button>删除</button>-->
-<!--                    </a>-->
+
                     <a class="btn btn-sm btn-primary" th:href="@{/delete/}+${employee.serialNumber}">删除</a>
-                    <input type="button" name="submit" onclick="javascript:history.back(-1);" value="返回">
+                    <input class="back_button" type="button" name="submit" onclick="javascript:history.back(-1);" value="バック">
 
                 </td>
 
@@ -76,4 +82,100 @@
         </table>
     </div>
 </body>
+<script>
+    function check_search_box() {
+        var dataInput = document.getElementById("search_box").val();
+        var msg = document.getElementsByClassName("search_reminding_msg");
+        if(dataInput ===null){
+            msg.innerHtml="查询内容不能为空，请输入员工ID."
+            return false;
+        }
+    }
+</script>
+<style>
+    .table_box{
+    width: 80%;
+    height: fit-content;
+    }
+
+
+    body {
+    font: normal 11px "Trebuchet MS", Verdana, Arial, Helvetica,Segoe Print;
+
+    color: #4f6b72;
+
+    background: #E6EAE9;
+
+    }
+
+    a {
+    color: #0c8ced;
+
+    }
+
+
+
+    caption {
+    padding: 0 0 5px 0;
+
+    width: 700px;
+
+    font: italic 11px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+
+    text-align: right;
+
+    }
+
+    th {
+    font: bold 11px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+
+    color: #4f6b72;
+
+    border-right: 1px solid #C1DAD7;
+
+    border-bottom: 1px solid #C1DAD7;
+
+    border-top: 1px solid #C1DAD7;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+
+    text-align: left;
+    white-space: nowrap;
+    padding: 6px 6px 6px 12px;
+
+    background: #CAE8EA url(images/bg_header.jpg) no-repeat;
+
+    }
+
+
+    td {
+    border-right: 1px solid #C1DAD7;
+
+    border-bottom: 1px solid #C1DAD7;
+
+    background: #fff;
+
+    font-size:11px;
+
+    padding: 6px 6px 6px 12px;
+
+    color: #4f6b72;
+
+    }
+
+
+    .search_box{
+    width: 30%;
+    color:#0c8ced;
+    background: rgba(66,113,229,0.5);
+    }
+    .back_button{
+    width: 30%;
+    color:#0c8ced;
+    background: rgba(66,113,229,0.5);
+    }
+
+</style>
 </html>

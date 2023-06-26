@@ -2,25 +2,44 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>社員追加更新</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 1. 引入vue -->
+    <script src="./js/vue.js"></script>
+    <!-- 2. 引入样式 -->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <!-- 3. 引入组件库 -->
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+    <script src="./js/jquery-3.3.1.js"></script>
+    <title>社員追加</title>
 </head>
-
+<h1>社員追加</h1>
 <body>
     <form role="form" action="/addEmp" method="post">
+
+<!--        <tr>-->
+<!--            <th>社員ID:</th>-->
+<!--            <th>氏名:</th>-->
+<!--            <th>性別:</th>-->
+<!--            <th>性別:</th>-->
+<!--            <th>部署:</th>-->
+<!--            <th>入社日:</th>-->
+<!--            <th>退社日:</th>-->
+<!--        </tr>-->
         <tr>
             <td>社員ID:
-                <input type="text" name="serialNumber">
+                <input type="text" name="serialNumber" style="width: 50px">
             </td>
             <td>氏名:
-                <input type="text" name="name">
-            </td>
+                <input type="text" name="name" style="width: 50px">
+            </td><br>
             <td>性別:
                 <input type="radio" name="gender" value="1" checked>男
                 <input type="radio" name="gender" value="0">女
-            </td><br>
-            <td>部署:
-                <input type="text" name="dp">
             </td>
+            <td>部署:
+                <input type="text" name="dp" style="width: 50px">
+            </td><br>
             <td>入社日:
                 <input type="date" name="joinDate">
             </td>
@@ -31,11 +50,129 @@
                 <input type="text" name="comment">
             </td><br>
             <td>
-                <button type="submit">作る</button>
-                <input type="button" name="submit" onclick="javascript:history.back(-1);" value="返回上一页">
+                <button class="page_btn1" type="submit">作る</button>
+                <input class="page_btn2" type="button" name="submit" onclick="javascript:history.back(-1);" value="バック">
             </td>
         </tr>
-
     </form>
 </body>
+<style>
+    body {
+        font: normal 11px "Trebuchet MS", Verdana, Arial, Helvetica,Segoe Print;
+
+        color: #4f6b72;
+
+        background: #E6EAE9;
+
+    }
+
+    a {
+        color: #0c8ced;
+
+    }
+
+    caption {
+        padding: 0 0 5px 0;
+
+        width: 700px;
+
+        font: italic 11px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+
+        text-align: right;
+
+    }
+
+    th {
+        font: bold 11px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+
+        color: #4f6b72;
+
+        border-right: 1px solid #C1DAD7;
+
+        border-bottom: 1px solid #C1DAD7;
+
+        border-top: 1px solid #C1DAD7;
+
+        letter-spacing: 2px;
+
+        text-transform: uppercase;
+
+        text-align: left;
+        white-space: nowrap;
+        padding: 6px 6px 6px 12px;
+
+        background: #CAE8EA url(images/bg_header.jpg) no-repeat;
+
+    }
+
+    th.nobg {
+        border-top: 0;
+
+        border-left: 0;
+
+        border-right: 1px solid #C1DAD7;
+
+        background: none;
+
+    }
+
+    td {
+        border-right: 1px solid #C1DAD7;
+
+        border-bottom: 1px solid #C1DAD7;
+
+        background: #fff;
+
+        font-size:11px;
+
+        padding: 6px 6px 6px 12px;
+
+        color: #4f6b72;
+
+    }
+
+    td.alt {
+        background: #F5FAFA;
+
+        color: #797268;
+
+    }
+
+    th.spec {
+        border-left: 1px solid #C1DAD7;
+
+        border-top: 0;
+
+        background: #fff url(images/bullet1.gif) no-repeat;
+
+        font: bold 10px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+
+    }
+
+    th.specalt {
+        border-left: 1px solid #C1DAD7;
+
+        border-top: 0;
+
+        background: #f5fafa url(images/bullet2.gif) no-repeat;
+
+        font: bold 10px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+
+        color: #797268;
+
+    }
+    .page_btn1{
+        /*width: 30%;*/
+        border: white;
+        color:#0c8ced;
+        background: rgba(12,140,237,0.5);
+    }
+    .page_btn2{
+        /*width: 30%;*/
+        border: white;
+        color:#0c8ced;
+        background: rgba(12,140,237,0.5);
+    }
+
+</style>
 </html>

@@ -2,9 +2,19 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:fmt="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 1. 引入vue -->
+    <script src="./js/vue.js"></script>
+    <!-- 2. 引入样式 -->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <!-- 3. 引入组件库 -->
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+    <script src="./js/jquery-3.3.1.js"></script>
     <title>社員詳細</title>
 </head>
 <body>
+<h1>社員情報</h1>
 <table border="1">
     <tr>
         <th>基本情報</th>
@@ -19,7 +29,7 @@
         <td>部署</td>
         <td>[[${employee.dp}]]</td>
         <td>性別</td>
-        <td>[[${employee.gender}]]
+        <td>
             <div th:switch="${employee.gender}">
                 <span th:case="1">男</span>
                 <span th:case="0">女</span>
@@ -39,6 +49,10 @@
         <td>本年残日数</td>
         <td>[[${employee.thisYearRemainingDay}]]</td>
     </tr>
+    <tr>
+        <td>退社日</td>
+        <td>[[${employee.retireDate}]]</td>
+    </tr>
 </table>
 <table>
     <tr>
@@ -47,6 +61,7 @@
     <tr>
         <td>id</td>
         <td>社員番号</td>
+        <td>年份</td>
         <td>操作</td>
         <td>日数</td>
         <td>承認者</td>
@@ -57,6 +72,7 @@
         <!--                <td th:text="${stat.count}"></td>-->
         <td th:text="${record.id}"></td>
         <td th:text="${record.serialNumber}"></td>
+        <td th:text="${record.year}"></td>
 
         <td>
             <div th:switch="${record.operation}">
@@ -93,6 +109,7 @@
     <tr>
         <td>id</td>
         <td>社員番号</td>
+        <td>年份</td>
         <td>操作</td>
         <td>日数</td>
         <td>承認者</td>
@@ -102,6 +119,7 @@
         <!--                <td th:text="${stat.count}"></td>-->
         <td th:text="${record.id}"></td>
         <td th:text="${record.serialNumber}"></td>
+        <td th:text="${record.year}"></td>
 
         <td>
             <div th:switch="${record.operation}">
@@ -124,6 +142,7 @@
     <tr>
         <td>id</td>
         <td>社員番号</td>
+        <td>年份</td>
         <td>操作</td>
         <td>日数</td>
         <td>承認者</td>
@@ -133,6 +152,7 @@
         <!--                <td th:text="${stat.count}"></td>-->
         <td th:text="${record.id}"></td>
         <td th:text="${record.serialNumber}"></td>
+        <td th:text="${record.year}"></td>
 
         <td>
             <div th:switch="${record.operation}">
@@ -148,8 +168,92 @@
 
 </table>
 <tr>
-    <input type="button" name="submit" onclick="javascript:history.back(-1);" value="返回上一页">
+    <input class="page_btn" type="button" name="submit" onclick="javascript:history.back(-1);" value="バック">
 </tr>
 
 </body>
+<style>
+    .table_box{
+        width: 80%;
+        height: fit-content;
+    }
+
+
+    body {
+        font: normal 11px "Trebuchet MS", Verdana, Arial, Helvetica,Segoe Print;
+
+        color: #4f6b72;
+
+        background: #E6EAE9;
+
+    }
+
+    a {
+        color: #0c8ced;
+
+    }
+
+
+
+    caption {
+        padding: 0 0 5px 0;
+
+        width: 700px;
+
+        font: italic 11px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+
+        text-align: right;
+
+    }
+
+    th {
+        font: bold 11px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+
+        color: #4f6b72;
+
+        border-right: 1px solid #C1DAD7;
+
+        border-bottom: 1px solid #C1DAD7;
+
+        border-top: 1px solid #C1DAD7;
+
+        letter-spacing: 2px;
+
+        text-transform: uppercase;
+
+        text-align: left;
+        white-space: nowrap;
+        padding: 6px 6px 6px 12px;
+
+        background: #CAE8EA url(images/bg_header.jpg) no-repeat;
+
+    }
+
+
+
+    td {
+        border-right: 1px solid #C1DAD7;
+
+        border-bottom: 1px solid #C1DAD7;
+
+        background: #fff;
+
+        font-size:11px;
+
+        padding: 6px 6px 6px 12px;
+
+        color: #4f6b72;
+
+    }
+
+
+    .page_btn{
+        /*width: 30%;*/
+        border: white;
+        text-decoration: none;
+        color:#606266 !important;
+        background: rgba(255,255,255,0.5);
+    }
+
+</style>
 </html>
