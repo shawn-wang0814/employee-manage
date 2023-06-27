@@ -49,9 +49,6 @@ public class LeaveCalculate {
 
     public Integer calculateLeaveOfThisYear(Date joinDate,Date retireDate){
 
-//        Date joinDate = employee.getJoinDate();
-//        Date retireDate = employee.getRetireDate();
-
         Calendar calendarNow = Calendar.getInstance();
         java.util.Date time = calendarNow.getTime(); //获取当前时间
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");

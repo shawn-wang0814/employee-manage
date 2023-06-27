@@ -17,15 +17,15 @@
 <h1>付与&消化</h1>
 <form action="/createRecord" method="post" style="border-collapse: separate;border-spacing: 10px" onsubmit="return check_days()">
 
-        <tr>氏名:
+        <tr>氏名:[[${employee.employeeName}]]
             <input type="text" name="serialNumber" th:value="${employee.serialNumber}" hidden>
-            <input class="employee_name" type="text" name="employeeName" style="width: 50px"  th:value="${employee.employeeName}" readonly>
+            <input class="employee_name" type="text" name="employeeName" style="width: 50px"  th:value="${employee.employeeName}" hidden>
         </tr>
         <tr>残日数:
                 [[${employee.lastYearRemainingDay}]] / [[${employee.thisYearRemainingDay}]]</tr>
         <tr><br><br><br>
         <tr>入社日:
-            <input type="date" id="joinDate" name="joinDate"style="width: 90px"th:value="${employee.joinDate}">
+            <input type="date" id="joinDate" name="joinDate"style="width: 100px"th:value="${employee.joinDate}">
         </tr>
             <div>選択:
                 <input type="radio" onclick="acheck1()" name="operation" id="aa" value="0"  >消化
@@ -46,19 +46,19 @@
 
         <tr>
             日数:
-                <input id="giveDays" type="days" name="days"><br>
+                <input id="giveDays" type="days" name="days" style="width: 50px"><br>
                 <p id="reminding_msg"></p>
 
         </tr><br>
 
         <tr>承認者：
-            <input type="text" name="adminName" th:value="${admin}">
+            <input type="text" name="adminName" th:value="${admin}" style="width: 50px">
 
         </tr>
         <tr>
             <div class="input-group">
                 <span class="input-group-addon">承認日:</span>
-                <input type="text" class="form-control" name="approveDate" id="time" >
+                <input type="text" class="form-control" name="approveDate" id="time" style="width: 70px">
                 <script>
                     Date.prototype.format = function (fmt) {
                         var o = {
