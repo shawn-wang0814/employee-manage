@@ -32,8 +32,10 @@
                 <th>入社年数</th>
                 <th>
 
-                            <form action="/empInfo" method="post" onsubmit="return check_search_box()">
-                                <input id="search_box" type="text" name="search" placeholder="社員番号を入力してください.">
+                            <form action="/employeeInfo" method="post" onsubmit="return check_search_box()">
+                                <label for="search_box">
+                                    <input id="search_box" type="text" name="search" placeholder="社員番号を入力してください.">
+                                </label>
                                 <p class="search_reminding_msg"></p>
                                 <input type="submit" value="搜索">
                             </form>

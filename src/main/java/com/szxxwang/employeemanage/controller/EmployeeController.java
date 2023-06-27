@@ -83,7 +83,7 @@ public class EmployeeController {
     }
 
     @RequestMapping("/empInfo/{serialNumber}")
-    public String employeeInfo(@PathVariable("serialNumber")String serialNumber, Model md,HttpServletResponse response) throws IOException {
+    public String empInfo(@PathVariable("serialNumber")String serialNumber, Model md,HttpServletResponse response) throws IOException {
         Employee employee = employeeService.getBySerialNumber(serialNumber);
         md.addAttribute("employee",employee);
 
@@ -95,12 +95,17 @@ public class EmployeeController {
 
     }
 
-    @RequestMapping("/empInfo")
-    public String empInfo(@RequestParam("search")String serialNumber, Model md,HttpServletResponse response) throws IOException {
+    @RequestMapping("/employeeInfo")
+    public String employeeInfo(@RequestParam("search")String serialNumber, Model md,HttpServletResponse response) throws IOException {
         if(serialNumber.isEmpty()){
             return "redirect:employeeList";
         }else{
+            System.out.println("serialNumber:"+serialNumber);
             Employee employee = employeeService.getBySerialNumber(serialNumber);
+            if(employee == null){
+                return "noEmployee";
+            }
+            System.out.println("employee:"+employee.toString());
             md.addAttribute("employee",employee);
 
             List<GiveRecord> giveAllList = recordService.findGiveAll(serialNumber);
