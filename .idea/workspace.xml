@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="567d4f16-fb42-4d84-9844-fc8d8ac850d3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/szxxwang/employeemanage/controller/EmployeeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/szxxwang/employeemanage/controller/EmployeeController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -208,7 +207,7 @@
       <workItem from="1687765729733" duration="31704000" />
       <workItem from="1687825809427" duration="11117000" />
       <workItem from="1687848681525" duration="911000" />
-      <workItem from="1687937966022" duration="751000" />
+      <workItem from="1687937966022" duration="1262000" />
     </task>
     <task id="LOCAL-00001" summary="The first version of the project! Implement employee leave calculation function!">
       <created>1687699300547</created>
@@ -252,7 +251,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687843465987</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Generate the getString method in the controller to delete the repeat code!">
+      <created>1687938894677</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1687938894677</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -263,7 +269,8 @@
     <MESSAGE value="Recoding the HTML file!Make the page more beautiful!" />
     <MESSAGE value="Changed the input label of the page." />
     <MESSAGE value="Recoded the search function!Add a error page when no employee was found through the search function." />
-    <option name="LAST_COMMIT_MESSAGE" value="Recoded the search function!Add a error page when no employee was found through the search function." />
+    <MESSAGE value="Generate the getString method in the controller to delete the repeat code!" />
+    <option name="LAST_COMMIT_MESSAGE" value="Generate the getString method in the controller to delete the repeat code!" />
   </component>
   <component name="WindowStateProjectService">
     <state x="623" y="220" key="#com.intellij.ide.util.MemberChooser" timestamp="1687801884842">
@@ -276,10 +283,10 @@
       <screen x="0" y="0" width="2048" height="1152" />
     </state>
     <state x="792" y="267" key="#com.intellij.openapi.keymap.impl.ui.EditKeymapsDialog/0.0.2048.1152@0.0.2048.1152" timestamp="1687312915418" />
-    <state x="673" y="234" key="CommitChangelistDialog2" timestamp="1687938799387">
+    <state x="673" y="234" key="CommitChangelistDialog2" timestamp="1687938893083">
       <screen x="0" y="0" width="2048" height="1152" />
     </state>
-    <state x="673" y="234" key="CommitChangelistDialog2/-1920.0.1536.864/0.0.2048.1152@0.0.2048.1152" timestamp="1687938799387" />
+    <state x="673" y="234" key="CommitChangelistDialog2/-1920.0.1536.864/0.0.2048.1152@0.0.2048.1152" timestamp="1687938893083" />
     <state x="242" y="28" key="CommitChangelistDialog2/0.0.1536.864/-1440.0.1440.900@0.0.1536.864" timestamp="1687797985775" />
     <state x="242" y="28" key="CommitChangelistDialog2/0.0.1536.864@0.0.1536.864" timestamp="1687807198141" />
     <state x="205" y="292" key="FileChooserDialogImpl" timestamp="1687848812112">
@@ -358,10 +365,10 @@
     <state x="158" y="150" key="SettingsEditor/0.0.1536.864/-1440.0.1440.900@0.0.1536.864" timestamp="1687587726104" />
     <state x="158" y="150" key="SettingsEditor/0.0.1536.864@0.0.1536.864" timestamp="1687699729106" />
     <state x="210" y="438" key="SettingsEditor/0.0.2048.1152@0.0.2048.1152" timestamp="1687511032171" />
-    <state x="481" y="221" key="Vcs.Push.Dialog.v2" timestamp="1687843847408">
+    <state x="481" y="221" key="Vcs.Push.Dialog.v2" timestamp="1687938905815">
       <screen x="0" y="0" width="2048" height="1152" />
     </state>
-    <state x="481" y="221" key="Vcs.Push.Dialog.v2/-1920.0.1536.864/0.0.2048.1152@0.0.2048.1152" timestamp="1687843847408" />
+    <state x="481" y="221" key="Vcs.Push.Dialog.v2/-1920.0.1536.864/0.0.2048.1152@0.0.2048.1152" timestamp="1687938905815" />
     <state x="361" y="166" key="Vcs.Push.Dialog.v2/0.0.1536.864/-1440.0.1440.900@0.0.1536.864" timestamp="1687797887041" />
     <state x="361" y="166" key="Vcs.Push.Dialog.v2/0.0.1536.864@0.0.1536.864" timestamp="1687807101147" />
     <state x="818" y="494" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1687832216966">
