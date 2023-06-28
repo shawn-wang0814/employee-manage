@@ -83,20 +83,14 @@ public class EmployeeController {
     }
 
     @RequestMapping("/empInfo/{serialNumber}")
-    public String empInfo(@PathVariable("serialNumber")String serialNumber, Model md,HttpServletResponse response) throws IOException {
+    public String empInfo(@PathVariable("serialNumber") String serialNumber, Model md) {
         Employee employee = employeeService.getBySerialNumber(serialNumber);
-        md.addAttribute("employee",employee);
-
-        List<GiveRecord> giveAllList = recordService.findGiveAll(serialNumber);
-        md.addAttribute("giveRecordList",giveAllList);
-        List<TakeRecord> takeAllList = recordService.findTakeAll(serialNumber);
-        md.addAttribute("takeRecordList",takeAllList);
-        return "employeeInfo";
+        return getString(serialNumber, md, employee);
 
     }
 
     @RequestMapping("/employeeInfo")
-    public String employeeInfo(@RequestParam("search")String serialNumber, Model md,HttpServletResponse response) throws IOException {
+    public String employeeInfo(@RequestParam("search") String serialNumber, Model md) {
         if(serialNumber.isEmpty()){
             return "redirect:employeeList";
         }else{
@@ -106,18 +100,22 @@ public class EmployeeController {
                 return "noEmployee";
             }
             System.out.println("employee:"+employee.toString());
-            md.addAttribute("employee",employee);
-
-            List<GiveRecord> giveAllList = recordService.findGiveAll(serialNumber);
-            md.addAttribute("giveRecordList",giveAllList);
-            List<TakeRecord> takeAllList = recordService.findTakeAll(serialNumber);
-            md.addAttribute("takeRecordList",takeAllList);
-            return "employeeInfo";
+            return getString(serialNumber, md, employee);
         }
     }
 
+    private String getString(@RequestParam("search") String serialNumber, Model md, Employee employee) {
+        md.addAttribute("employee",employee);
+
+        List<GiveRecord> giveAllList = recordService.findGiveAll(serialNumber);
+        md.addAttribute("giveRecordList",giveAllList);
+        List<TakeRecord> takeAllList = recordService.findTakeAll(serialNumber);
+        md.addAttribute("takeRecordList",takeAllList);
+        return "employeeInfo";
+    }
+
     @RequestMapping("/edit/{serialNumber}")
-    public String employeeEdit(@PathVariable("serialNumber")String serialNumber, Model md, HttpServletResponse response, HttpServletRequest request) throws ServletException, IOException {
+    public String employeeEdit(@PathVariable("serialNumber") String serialNumber, Model md, HttpServletRequest request) {
         Employee employee = employeeService.getBySerialNumber(serialNumber);
         md.addAttribute("employee",employee);
         request.setAttribute("employee",employee);
