@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="567d4f16-fb42-4d84-9844-fc8d8ac850d3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/szxxwang/employeemanage/controller/EmployeeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/szxxwang/employeemanage/controller/EmployeeController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/employeeEdit.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/employeeEdit.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -207,7 +209,7 @@
       <workItem from="1687765729733" duration="31704000" />
       <workItem from="1687825809427" duration="11117000" />
       <workItem from="1687848681525" duration="911000" />
-      <workItem from="1687937966022" duration="1262000" />
+      <workItem from="1687937966022" duration="2188000" />
     </task>
     <task id="LOCAL-00001" summary="The first version of the project! Implement employee leave calculation function!">
       <created>1687699300547</created>
@@ -258,7 +260,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687938894677</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Generate the getString method in the controller to delete the repeat code!">
+      <created>1687939246663</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1687939246663</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -283,10 +292,10 @@
       <screen x="0" y="0" width="2048" height="1152" />
     </state>
     <state x="792" y="267" key="#com.intellij.openapi.keymap.impl.ui.EditKeymapsDialog/0.0.2048.1152@0.0.2048.1152" timestamp="1687312915418" />
-    <state x="673" y="234" key="CommitChangelistDialog2" timestamp="1687938893083">
+    <state x="673" y="234" key="CommitChangelistDialog2" timestamp="1687939292837">
       <screen x="0" y="0" width="2048" height="1152" />
     </state>
-    <state x="673" y="234" key="CommitChangelistDialog2/-1920.0.1536.864/0.0.2048.1152@0.0.2048.1152" timestamp="1687938893083" />
+    <state x="673" y="234" key="CommitChangelistDialog2/-1920.0.1536.864/0.0.2048.1152@0.0.2048.1152" timestamp="1687939292837" />
     <state x="242" y="28" key="CommitChangelistDialog2/0.0.1536.864/-1440.0.1440.900@0.0.1536.864" timestamp="1687797985775" />
     <state x="242" y="28" key="CommitChangelistDialog2/0.0.1536.864@0.0.1536.864" timestamp="1687807198141" />
     <state x="205" y="292" key="FileChooserDialogImpl" timestamp="1687848812112">
