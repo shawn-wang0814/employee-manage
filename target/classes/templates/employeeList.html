@@ -29,7 +29,7 @@
                 <th>本年度残日数</th>
                 <th>残日数</th>
                 <th>退社日</th>
-                <th>入社年数</th>
+<!--                <th>入社年数</th>-->
                 <th>
 
                             <form action="/employeeInfo" method="post" onsubmit="return check_search_box()">
@@ -65,7 +65,7 @@
                 <td fmt:width="10%" th:text="${employee.thisYearRemainingDay}"></td>
                 <td th:text="${employee.lastYearRemainingDay} +'/'+ ${employee.thisYearRemainingDay}"></td>
                 <td th:text="${employee.retireDate}"></td>
-                <td th:text="${employee.yearsOfService}"></td>
+<!--                <td th:text="${employee.yearsOfService}"></td>-->
 
                 <td>
                     <a class="btn btn-sm btn-primary" th:href="@{/edit/}+${employee.serialNumber}">编辑</a>

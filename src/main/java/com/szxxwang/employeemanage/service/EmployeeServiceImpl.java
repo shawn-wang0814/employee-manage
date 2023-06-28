@@ -27,6 +27,11 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
+    public List<String> getAllSerial() {
+        return employeeMapper.getAllSerial();
+    }
+
+    @Override
     public Employee getBySerialNumber(String serialNumber) {
 
         return employeeMapper.getBySerialNumber(serialNumber);

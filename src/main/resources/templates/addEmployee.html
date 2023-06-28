@@ -15,7 +15,7 @@
 </head>
 <h1>社員追加</h1>
 <body>
-    <form role="form" action="/addEmp" method="post">
+    <form role="form" action="/addEmp" method="post" onsubmit= "return check_serial()">
 
 <!--        <tr>-->
 <!--            <th>社員ID:</th>-->
@@ -28,7 +28,8 @@
 <!--        </tr>-->
         <tr>
             <td>社員ID:
-                <input type="text" name="serialNumber" style="width: 50px">
+                <input id="serial" type="text" name="serialNumber" style="width: 50px" onblur="check_serial()">
+                <P id="reminding_msg"></P>
             </td>
             <td>氏名:
                 <input type="text" name="name" style="width: 50px">
@@ -56,6 +57,26 @@
         </tr>
     </form>
 </body>
+
+<script type="text/javascript">
+    function check_serial() {
+        var serial = document.getElementById("serial").value;
+        var serialList = "[[${serialList}]]";
+        console.log(typeof(serialList));
+        console.log(serialList);
+        var msg = document.getElementById("reminding_msg");
+       if (serialList !== ""){
+           if(serialList.includes(serial)){
+               msg.innerHTML="此用户ID已经被占用，请重新输入！";
+               return false;
+           }else {
+               msg.innerHTML="此用户ID可用！";
+           }
+       }
+
+    }
+</script>
+
 <style>
     body {
         font: normal 11px "Trebuchet MS", Verdana, Arial, Helvetica,Segoe Print;

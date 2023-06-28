@@ -13,6 +13,7 @@ import java.util.List;
  */
 public interface EmployeeService {
     List<Employee> getAll();
+    List<String> getAllSerial();
     Employee getBySerialNumber(String serialNumber);
     int addEmployee(Employee employee);
     int addEmployeeWithoutLeave(Employee employee);

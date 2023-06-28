@@ -21,6 +21,9 @@ public interface EmployeeMapper {
     @Select("select * from employees;")
     public List<Employee> getAll();
 
+    @Select("select serialNumber from employees;")
+    public List<String> getAllSerial();
+
     @Select("select * from employees where serialNumber=#{serialNumber};")
     public Employee getBySerialNumber(String serialNumber);
 

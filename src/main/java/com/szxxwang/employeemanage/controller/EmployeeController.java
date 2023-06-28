@@ -1,5 +1,6 @@
 package com.szxxwang.employeemanage.controller;
 
+import com.alibaba.fastjson.JSON;
 import com.szxxwang.employeemanage.domain.Employee;
 import com.szxxwang.employeemanage.domain.GiveRecord;
 import com.szxxwang.employeemanage.domain.TakeRecord;
@@ -24,6 +25,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.List;
 
+
 /**
  * Project Name:springboot
  * File Name:null.java
@@ -41,7 +43,11 @@ public class EmployeeController {
     private RecordServiceImpl recordService;
 
     @RequestMapping("/addEmployee")
-    public String addEmployeePage(){
+    public String addEmployeePage(Model md){
+        List<String> allSerial = employeeService.getAllSerial();
+        String string = JSON.toJSONString(allSerial);
+        System.out.println("String:"+string);
+        md.addAttribute("serialList",string);
         return "addEmployee";
     }
 
@@ -69,7 +75,8 @@ public class EmployeeController {
 //        }else {
 //            employeeService.addEmployeeWithoutLeave(employee);
 //        }
-        employeeService.addEmployeeWithoutLeave(employee);
+        int i = employeeService.addEmployeeWithoutLeave(employee);
+        System.out.println("i" + i);
         response.sendRedirect("/employeeList");
     }
 
