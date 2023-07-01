@@ -40,6 +40,9 @@ public class RecordController {
     @RequestMapping("/giveAndTake/{serialNumber}")
     public String giveAndTake(@PathVariable("serialNumber")String serialNumber, Model md, HttpServletRequest request){
         Employee employee = employeeService.getBySerialNumber(serialNumber);
+        List<String> giveRecordListByYear = recordService.findGiveAllYearList(serialNumber);
+        System.out.println("All give Record by year:" + giveRecordListByYear);
+        md.addAttribute("giveRecordListByYear",giveRecordListByYear);
         md.addAttribute("employee",employee);
         String firstDay = FirstDayOfThisYear.getFirstDay();
         md.addAttribute("firstDay",firstDay);

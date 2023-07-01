@@ -133,7 +133,7 @@ public class EmployeeController {
     @RequestMapping("/updateEmp")
     public void employeeUpdate(@RequestParam("serialNumber")String serialNumber, @RequestParam("employeeName")String name, @RequestParam("gender")Integer gender,
                                  @RequestParam("dp")String dp, @RequestParam("joinDate")String joinDate,
-                                 @RequestParam("retireDate")String retireDate,@RequestParam("thisYearRemainingDay")Integer thisYearRemainingDay,
+                                 @RequestParam("newRetireDate")String newRetireDate,@RequestParam("oldRetireDate")String oldRetireDate,@RequestParam("thisYearRemainingDay")Integer thisYearRemainingDay,
                                @RequestParam("lastYearRemainingDay")Integer lastYearRemainingDay,
                                HttpServletResponse response) throws ParseException, IOException {
         Employee employee = new Employee();
@@ -141,11 +141,10 @@ public class EmployeeController {
         employee.setEmployeeName(name);
         employee.setGender(gender);
         employee.setDp(dp);
-        Date sqlRetireDate = null;
         Date sqlJoinDate = SqlDateFromat.sqlDateformate(joinDate);
+        Date sqlRetireDate = SqlDateFromat.sqlDateformate(newRetireDate);
         //修改员工信息页面，如果添加员工的退职日期，则当年假期重新计算。
-        if(retireDate!=null && !retireDate.isEmpty()){
-            sqlRetireDate = SqlDateFromat.sqlDateformate(retireDate);
+        if(!newRetireDate.equals(oldRetireDate)){
             LeaveCalculate leaveCalculate = new LeaveCalculate();
             thisYearRemainingDay = leaveCalculate.calculateLeaveOfThisYear(sqlJoinDate, sqlRetireDate);
         }

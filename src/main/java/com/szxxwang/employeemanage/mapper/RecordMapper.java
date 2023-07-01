@@ -18,8 +18,8 @@ import java.util.List;
 @Mapper
 @Repository
 public interface RecordMapper {
-    @Select("select * from giveRecord where serialNumber=#{sn}")
-    List<GiveRecord> getAll(String sn);
+    @Select("select year from giveRecord where serialNumber=#{sn}")
+    List<String> getAllGiveYearList(String sn);
 
     @Select("select * from giveRecord where serialNumber=#{sn}")
     List<GiveRecord> getGiveAll(String sn);

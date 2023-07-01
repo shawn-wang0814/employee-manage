@@ -15,7 +15,7 @@
 </head>
 <body>
 <h1>付与&消化</h1>
-<form action="/createRecord" method="post" style="border-collapse: separate;border-spacing: 10px" onsubmit="return check_days()">
+<form action="/createRecord" method="post" style="border-collapse: separate;border-spacing: 10px" onsubmit="return (check_days())">
 
         <tr>氏名:[[${employee.employeeName}]]
             <input type="text" name="serialNumber" th:value="${employee.serialNumber}" hidden>
@@ -38,7 +38,8 @@
         <tr>
             <div class="box" id="giveDateDiv">
                 付与日:
-                <input id="giveDateInput" type="date" name="giveDate" th:value="${firstDay}" onchange="changeVal()">
+                <input id="giveDateInput" type="date" name="giveDate" th:value="${firstDay}" onblur="check_days()">
+                <p id="reminding_year_msg"></p>
             </div>
 
         </tr>
@@ -46,7 +47,7 @@
 
         <tr>
             日数:
-                <input id="giveDays" type="days" name="days" style="width: 50px"><br>
+                <input id="giveDays" type="days" name="days" style="width: 50px" onblur="check_days()"><br>
                 <p id="reminding_msg"></p>
 
         </tr><br>
@@ -70,7 +71,7 @@
                         for (var k in o)
                             if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
                         return fmt;
-                    }
+                    };
                     document.getElementById('time').value = (new Date()).format('yyyy-MM-dd');
                 </script>
             </div>
@@ -98,6 +99,52 @@
                 pLabel.innerHTML=("请假天数大于可用天数，可用假期数目为："+remainingDays);
                 return false;
             }
+        }else {
+            var giveDateInput = document.getElementById("giveDateInput").value;
+            var joinDate = document.getElementById("joinDate").value;
+            var rmd_msg = document.getElementById("reminding_year_msg");
+            var dt1 = giveDateInput.split("-");
+            var dt2 = joinDate.split("-");
+
+            var giveYear = dt1[0];
+            console.log("giveYear:",giveYear);
+            var giveYearList = "[[${giveRecordListByYear}]]";
+            console.log("giveYearList:",giveYearList);
+            if(giveYearList.includes(giveYear)){
+                console.log("该年份已经被付与过一次假期!");
+                rmd_msg.innerHTML=giveYear +"年已经被付与过一次假期，不能被重复付与假期";
+                return false;
+            }
+
+            var moth1 = dt1[0] * 12 + dt1[1][1]*1;
+            var moth2 = dt2[0] * 12 + dt2[1][1]*1;
+            var diff = moth1 - moth2;
+            console.log(dt1);
+            console.log(dt2);
+            console.log(moth1);
+            console.log(moth2);
+            console.log(joinDate);
+            console.log(typeof(dt1));
+            console.log(diff);
+
+
+            if(diff < 6){
+                document.getElementById("giveDays").value = 0;
+            }else if( 6 <= diff && diff < 18 ){
+                document.getElementById("giveDays").value = 10;
+            }else if( 18 <= diff && diff < 30 ){
+                document.getElementById("giveDays").value = 11;
+            }else if( 30 <= diff && diff < 42 ){
+                document.getElementById("giveDays").value = 12;
+            }else if( 42 <= diff && diff < 54 ){
+                document.getElementById("giveDays").value = 14;
+            }else if( 54 <= diff && diff < 66 ){
+                document.getElementById("giveDays").value = 16;
+            }else if( 66 <= diff && diff < 78 ){
+                document.getElementById("giveDays").value = 18;
+            }else if( 78 <= diff){
+                document.getElementById("giveDays").value = 20;
+            }
         }
     }
     function acheck1(){
@@ -123,9 +170,22 @@
 
     function changeVal() {
         var giveDateInput = document.getElementById("giveDateInput").value;
+        var val=$('input:radio[name="operation"]:checked').val();
         var joinDate = document.getElementById("joinDate").value;
+        var rmd_msg = document.getElementById("reminding_year_msg");
         var dt1 = giveDateInput.split("-");
         var dt2 = joinDate.split("-");
+
+        var giveYear = dt1[0];
+        console.log("giveYear:",giveYear);
+        var giveYearList = "[[${giveRecordListByYear}]]";
+        console.log("giveYearList:",giveYearList);
+        if(val === "1"&&giveYearList.includes(giveYear)){
+            console.log("该年份已经被付与过一次假期!");
+            rmd_msg.innerHTML=giveYear +"年已经被付与过一次假期，不能被重复付与假期";
+            return false;
+        }
+
         var moth1 = dt1[0] * 12 + dt1[1][1]*1;
         var moth2 = dt2[0] * 12 + dt2[1][1]*1;
         var diff = moth1 - moth2;
@@ -136,6 +196,8 @@
         console.log(joinDate);
         console.log(typeof(dt1));
         console.log(diff);
+
+
         if(diff < 6){
             document.getElementById("giveDays").value = 0;
         }else if( 6 <= diff && diff < 18 ){
@@ -187,9 +249,8 @@
     .page_btn2{
         /*width: 30%;*/
         border: white;
-        text-decoration: none;
-        color:#606266 !important;
-        background: rgba(255,255,255,0.5);
+        color:#0c8ced;
+        background: rgba(66,113,229,0.5);
     }
 
 

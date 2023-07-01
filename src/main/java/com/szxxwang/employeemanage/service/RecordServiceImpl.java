@@ -23,6 +23,12 @@ public class RecordServiceImpl implements RecordService {
 
 
     @Override
+    public List<String> findGiveAllYearList(String sn) {
+
+        return recordMapper.getAllGiveYearList(sn);
+    }
+
+    @Override
     public List<GiveRecord> findGiveAll(String sn) {
         return recordMapper.getGiveAll(sn);
     }

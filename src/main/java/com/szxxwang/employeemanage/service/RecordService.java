@@ -13,6 +13,7 @@ import java.util.List;
  * Copyright (c) 2023, szxxwang@outlook.com All Rights Reserved.
  */
 public interface RecordService {
+    List<String> findGiveAllYearList(String sn);
     List<GiveRecord> findGiveAll(String sn);
     List<TakeRecord> findTakeAll(String sn);
     int createGiveRecord(GiveRecord leaveRecord);

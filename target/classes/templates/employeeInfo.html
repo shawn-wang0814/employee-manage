@@ -89,6 +89,7 @@
         <!--                <td th:text="${stat.count}"></td>-->
         <td th:text="${record.id}"></td>
         <td th:text="${record.serialNumber}"></td>
+        <td th:text="${record.year}"></td>
 
         <td>
             <div th:switch="${record.operation}">
@@ -168,7 +169,8 @@
 
 </table>
 <tr>
-    <input class="page_btn" type="button" name="submit" onclick="javascript:history.back(-1);" value="バック">
+    <input class="page_btn1" type="button" name="submit" onclick="javascript:history.back(-1);" value="バック">
+    <input type="button" class="page_btn2" onclick="location.href='/employeeList'" value="员工列表">
 </tr>
 
 </body>
@@ -247,12 +249,18 @@
     }
 
 
-    .page_btn{
+    .page_btn1{
         /*width: 30%;*/
         border: white;
-        text-decoration: none;
-        color:#606266 !important;
-        background: rgba(255,255,255,0.5);
+        color:#0c8ced;
+        background: rgba(12,140,237,0.5);
+    }
+
+    .page_btn2{
+        /*width: 30%;*/
+        border: white;
+        color:#0c8ced;
+        background: rgba(12,140,237,0.5);
     }
 
 </style>

@@ -43,7 +43,8 @@
             <input type="date" name="joinDate" th:value="${employee.joinDate}">
         </td>
         <td>退社日:
-            <input type="date" name="retireDate" th:value="${employee.retireDate}">
+            <input type="date" name="oldRetireDate" th:value="${employee.retireDate}" hidden>
+            <input type="date" name="newRetireDate" th:value="${employee.retireDate}">
         </td><br>
         <td>去年残日数:
             <input type="number" name="lastYearRemainingDay" th:value="${employee.lastYearRemainingDay}" style="width: 50px" readonly>
